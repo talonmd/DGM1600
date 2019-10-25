@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "star-wars-hollow";
+    src: url(../resources/Starjhol.ttf);
+}
+
+@font-face {
+    font-family: "distant-galaxy";
+    src: url(../resources/SFDistantGalaxy.ttf);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+button {
+    color: rgb(202, 202, 74);
+    background-color: rgba(202, 202, 74, 0);
+    border: 4px solid rgb(202, 202, 74);
+    border-radius: 20%;
+    margin: 1rem;
+    font-size: 1.2rem;
+    font-family: "distant-galaxy";
+    padding: .2rem;
+    width: 33%;
+    height: 3.1rem;
+}
+
+button:visited {
+    background-color: rgb(202, 202, 74);
+    color: rgba(202, 202, 74, 0);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    background-color: rgb(202, 202, 74);
+    color: black;
+}
+
+button.active {
+    background-color: rgb(202, 202, 74);
+    color: black;
+}
+
+body {
+    background-image: url(/resources/stars.jpg); /* Photo by Francesco Ungaro from Pexels */
+    background-attachment: fixed;
+    font-size: 18px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    margin: 4rem 2rem;
+}
+
+.planetPic {
+    width: 275px;
+    border: 2px solid rgb(202, 202, 74);
+}
+
+.planetDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    padding: .5rem .2rem;
+}
+
+h3 {
+    color: rgb(202, 202, 74);
+    font-family: "star-wars-hollow";
+    font-size: 2rem;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+p {
+    color: rgb(202, 202, 74);
+    font-family: "distant-galaxy";
+    font-size: 1rem;
+    margin: 0;
+    padding-bottom: .5rem;
+}
