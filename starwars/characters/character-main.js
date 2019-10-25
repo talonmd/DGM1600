@@ -124,3 +124,25 @@ maleButton.addEventListener('click', () => {
     */
 })
 })
+
+otherButton.addEventListener('click', () => {
+    otherCharacters.forEach(character => {
+
+    let matchedDiv = allDivs.find((matchingDivs) => {         // filter
+        return matchingDivs.firstChild.textContent !== character.name
+    })
+
+    matchedDiv.setAttribute('style', 'display: none;')
+})
+})
+
+femaleButton.addEventListener('click', () => {
+    femaleCharacters.forEach(character => {
+
+    let matchedDiv = allDivs.find((matchingDivs) => {         // filter
+        return matchingDivs.firstChild.textContent !== character.name
+    })
+
+    matchedDiv.setAttribute('style', 'display: none;')
+})
+})
