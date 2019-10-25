@@ -1,4 +1,4 @@
-import { planets } from '../assets/planets'
+import { planets } from '/starwars/assets/planets.js'
 
 let mainArea = document.querySelector('main')
 let mainHeader = document.querySelector('header')
