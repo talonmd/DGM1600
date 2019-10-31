@@ -12,6 +12,7 @@ body {
 #navbar {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     position: fixed;
     background-color: #141414;
     width: 100%;
@@ -24,13 +25,16 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-right: 1rem;
 }
 
 .nav-list li {
     list-style: none;
     color: #efefef;
     font-size: 2rem;
-    padding-right: 1rem;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    border-radius: 2px;
 }
 
 .nav-list a {
@@ -39,7 +43,11 @@ body {
 }
 
 .nav-list a:hover {
-    color: #9c9898;
+    color: #141414;
+}
+
+.nav-list li:hover {
+  background-color: #efefef;
 }
 
 /* WELCOME SECTION */
@@ -74,9 +82,7 @@ body {
     padding-bottom: 2rem;
     margin-bottom: 0;
     color: #efefef;
-    width: 100%;
-
-    
+    width: 100%; 
 }
 
 #projects h1 {
@@ -92,16 +98,20 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   width: 80%;
   grid-gap: 2rem;
-  background-image: linear-gradient(#eee6e6a2, #eee6e631);
+  background-color: #141414;
   padding: 5rem 2rem 5rem 2rem;
-  border-radius: 10px;
-
 }
 
 .project-tile {
     padding-bottom: 0;
     margin-bottom: 0;
     width: 100%;
+    border: 3px solid #141414;
+    border-radius: 2px;
+}
+
+.project-tile:hover {
+  border: 3px solid #efefef;
 }
 
 .project-title {
@@ -110,6 +120,8 @@ body {
   text-align: center;
   width: 100%;
   font-size: 2em;
+  border: 3px solid #141414;
+  border-radius: 2px;
 }
 
 a {
@@ -171,11 +183,17 @@ a {
   list-style: none;
   color: #141414;
   font-size: 2rem;
-  padding-right: 1rem;
+  padding-right: .5rem;
+  padding-left: .5rem;
+  border-radius: 2px;
+}
+
+.contact-list li:hover {
+  background-color: #141414;
 }
 
 .contact-list li a:hover {
-  color: #9c9898;
+  color: #efefef;
 }
 
 /* FOOTER */
