@@ -121,3 +121,11 @@ p {
     align-items: center;
     align-content: center;
 }
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: revert;
+}

@@ -68,8 +68,8 @@ people.forEach((person) => {
     personDiv.setAttribute('class', 'charDivs')
     picture.setAttribute('class', 'picDivs')
 
-    let charNum = getCharNumber(person.url) 
-    
+    let charNum = getCharNumber(person.url)
+
     name.textContent = person.name
     gender.textContent = `Gender: ${person.gender}`
     picture.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
@@ -78,17 +78,17 @@ people.forEach((person) => {
     personDiv.appendChild(gender)
     personDiv.appendChild(picture)
 
-    peopleGridDiv.appendChild(personDiv)  
+    peopleGridDiv.appendChild(personDiv)
 });
 
 mainSection.appendChild(peopleGridDiv)
 
 function getCharNumber(charURL) {
     let end = charURL.lastIndexOf('/')
-    let charID = charURL.substring(end -2, end)
+    let charID = charURL.substring(end - 2, end)
 
-    if(charID.indexOf('/') !== -1 ) {
-        return charID.slice(1,2)
+    if (charID.indexOf('/') !== -1) {
+        return charID.slice(1, 2)
     } else {
         return charID
     }
@@ -100,49 +100,88 @@ const maleCharacters = people.filter(person => person.gender === 'male')
 const femaleCharacters = people.filter(person => person.gender === 'female')
 const otherCharacters = people.filter(person => person.gender !== 'female' & person.gender !== 'male')
 
-console.log(maleCharacters)
-
 const allDivs = Array.from(document.getElementsByClassName('charDivs'))
 
-console.log(allDivs)
-
 maleButton.addEventListener('click', () => {
-    maleCharacters.forEach(character => {
+    femaleCharacters.forEach(character => {
 
-    let matchedDiv = allDivs.find((matchingDivs) => {         // filter
-        return matchingDivs.firstChild.textContent !== character.name
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === character.name
+        })
+
+        matchedDiv.setAttribute('style', 'display: none;')
+
     })
 
-    matchedDiv.setAttribute('style', 'display: none;')
-
-
-    // matchedDiv[0].setAttribute("style", "display: none") //display: none
-    /* matchedDiv.className = 'class name' 
-    if(matchedDiv.getAttribute('style') === "display: none;") {
-        matchedDiv.setAttribute("style", "display: revert;")
-    }
-    */
-})
-})
-
-otherButton.addEventListener('click', () => {
     otherCharacters.forEach(character => {
 
-    let matchedDiv = allDivs.find((matchingDivs) => {         // filter
-        return matchingDivs.firstChild.textContent !== character.name
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute('style', 'display: none;')
     })
 
-    matchedDiv.setAttribute('style', 'display: none;')
-})
+    maleCharacters.forEach(character => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute('style', 'display: revert;')
+    })
+
 })
 
 femaleButton.addEventListener('click', () => {
-    femaleCharacters.forEach(character => {
+    maleCharacters.forEach(character => {
 
-    let matchedDiv = allDivs.find((matchingDivs) => {         // filter
-        return matchingDivs.firstChild.textContent !== character.name
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === character.name
+        })
+
+        matchedDiv.setAttribute('style', 'display: none;')
+
     })
 
-    matchedDiv.setAttribute('style', 'display: none;')
+    otherCharacters.forEach(character => {
+
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute('style', 'display: none;')
+    })
+
+    femaleCharacters.forEach(character => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute('style', 'display: revert;')
+    })
+
 })
+
+otherButton.addEventListener('click', () => {
+    maleCharacters.forEach(character => {
+
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === character.name
+        })
+
+        matchedDiv.setAttribute('style', 'display: none;')
+
+    })
+
+    femaleCharacters.forEach(character => {
+
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute('style', 'display: none;')
+    })
+
+    otherCharacters.forEach(character => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute('style', 'display: revert;')
+    })
+
 })
