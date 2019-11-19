@@ -68,8 +68,8 @@ people.forEach((person) => {
     personDiv.setAttribute('class', 'charDivs')
     picture.setAttribute('class', 'picDivs')
 
-    let charNum = getCharNumber(person.url) 
-    
+    let charNum = getCharNumber(person.url)
+
     name.textContent = person.name
     gender.textContent = `Gender: ${person.gender}`
     picture.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
@@ -78,17 +78,17 @@ people.forEach((person) => {
     personDiv.appendChild(gender)
     personDiv.appendChild(picture)
 
-    peopleGridDiv.appendChild(personDiv)  
+    peopleGridDiv.appendChild(personDiv)
 });
 
 mainSection.appendChild(peopleGridDiv)
 
 function getCharNumber(charURL) {
     let end = charURL.lastIndexOf('/')
-    let charID = charURL.substring(end -2, end)
+    let charID = charURL.substring(end - 2, end)
 
-    if(charID.indexOf('/') !== -1 ) {
-        return charID.slice(1,2)
+    if (charID.indexOf('/') !== -1) {
+        return charID.slice(1, 2)
     } else {
         return charID
     }
