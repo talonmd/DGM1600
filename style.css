@@ -111,7 +111,7 @@ body {
 }
 
 .project-tile:hover {
-  border: 3px solid #efefef;
+  width: 98%;
 }
 
 .project-title {
@@ -189,11 +189,12 @@ a {
 }
 
 .contact-list li:hover {
-  background-color: #141414;
+  /* background-color: #141414; */
 }
 
 .contact-list li a:hover {
-  color: #efefef;
+  /* color: #efefef; */
+  font-weight: bold;
 }
 
 /* FOOTER */
