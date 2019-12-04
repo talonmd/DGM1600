@@ -188,9 +188,9 @@ a {
   border-radius: 2px;
 }
 
-.contact-list li:hover {
-  /* background-color: #141414; */
-}
+ /* .contact-list li:hover {
+ background-color: #141414;
+} */
 
 .contact-list li a:hover {
   /* color: #efefef; */
