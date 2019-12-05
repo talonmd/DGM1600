@@ -29,7 +29,7 @@ characterButton.addEventListener('click', () => {
     window.location = "../characters/characters.html"
 })
 
-films.forEach(function(film) {
+films.forEach(function (film) {
     let filmDiv = document.createElement('div')
     let filmTitle = document.createElement('h1')
     let filmCrawl = document.createElement('p')
