@@ -1,4 +1,5 @@
-import { planets } from '/starwars/assets/planets.js'
+import { starships } from '/starwars/assets/starships.js'
+import { vehicles } from '/starwars/assets/vehicles.js'
 
 let mainArea = document.querySelector('main')
 let mainHeader = document.querySelector('header')
@@ -29,7 +30,7 @@ characterButton.addEventListener('click', () => {
     window.location = "../characters/characters.html"
 })
 
-planets.forEach((planet) => {
+starships.forEach((planet) => {
     let planetDiv = document.createElement('div')
     let planetTitle = document.createElement('h3')
     let planetInfo = document.createElement('p')
@@ -42,7 +43,34 @@ planets.forEach((planet) => {
     
     planetTitle.textContent = planet.name
     planetInfo.textContent = `Population: ${planet.population}`
-    planetPic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`
+    planetPic.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`
+
+    planetPic.addEventListener('error', (event) => {
+        let badImage = event.target
+        badImage.src = '../resources/planet.jpg'
+    })
+
+    planetDiv.appendChild(planetTitle)
+    planetDiv.appendChild(planetInfo)
+    planetDiv.appendChild(planetPic)
+
+    mainArea.appendChild(planetDiv)  
+});
+
+vehicles.forEach((planet) => {
+    let planetDiv = document.createElement('div')
+    let planetTitle = document.createElement('h3')
+    let planetInfo = document.createElement('p')
+    let planetPic = document.createElement('img')
+
+    planetPic.setAttribute('class', 'planetPic')
+    planetDiv.setAttribute('class', 'planetDiv')
+
+    let charNum = getCharNumber(planet.url) 
+    
+    planetTitle.textContent = planet.name
+    planetInfo.textContent = `Population: ${planet.population}`
+    planetPic.src = `https://starwars-visualguide.com/assets/img/vehicles/${charNum}.jpg`
 
     planetPic.addEventListener('error', (event) => {
         let badImage = event.target
