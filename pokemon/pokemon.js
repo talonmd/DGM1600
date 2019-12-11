@@ -47,18 +47,24 @@ createButton.addEventListener('click', function () {
 })
 
 // create a new card from the existing api data
+const alert = document.querySelector('.alert-box')
 const newButton = document.querySelector('#newPokemon')
 newButton.addEventListener('click', function () {
-    let pokeId = prompt('Please enter a Pokemon ID')
+    alert.style.display = 'none'
+    let pokeId = document.querySelector('.id-input').value
+    console.log(pokeId)
     if (pokeId > 0 && pokeId <= 807) {
         getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
             .then(result => {
                 populateDOM(result)
             })
     } else {
-        alert('There are no Pokemon with that ID. Choose another one between 1 and 807.')
+        alert.style.display = 'block'
     }
 })
+
+
+
 
 // async function
 async function getAPIData(url) {
