@@ -1,0 +1,107 @@
+html {
+    background-color: rgb(59, 59, 59);
+}
+
+.back-to {
+    color: white;
+    text-decoration: underline;
+    padding: .5rem;
+    margin-bottom: 2rem;
+}
+
+.back-to:hover {
+    color: rgb(211, 210, 210);
+}
+
+.card-image {
+    height: 250px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
+    width: 100%;
+    max-width: 1280x;
+    margin: 0 auto;
+    margin-bottom: 6rem;
+}
+
+header {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0 6rem;
+    color: black;
+    font-weight: bold;
+    height: 6rem;
+    margin: 1rem 0;
+}
+
+div.absolute-div {
+    margin: .25rem;
+    text-align: center;
+    box-shadow: 0 0 5px 5px rgba(75, 74, 74, 0.685);
+    width: 25%;
+    height: 100%;
+    padding: 2.1rem;
+    background-color: white;
+}
+
+div.republican-div {
+    margin: .25rem;
+    text-align: center;
+    box-shadow: 0 0 5px 5px rgba(75, 74, 74, 0.685);
+    width: 25%;
+    height: 100%;
+    padding: 2.1rem;
+    background-color: white;
+}
+
+div.democrat-div {
+    margin: .25rem;
+    text-align: center;
+    box-shadow: 0 0 5px 5px rgba(75, 74, 74, 0.685);
+    width: 25%;
+    height: 100%;
+    padding: 2.1rem;
+    background-color: white;
+}
+
+div.independent-div {
+    margin: .25rem;
+    text-align: center;
+    box-shadow: 0 0 5px 5px rgba(75, 74, 74, 0.685);
+    width: 25%;
+    height: 100%;
+    padding: 2.1rem;
+    background-color: white;
+}
+
+p {
+    padding: 1rem 0 0 0;
+    color: black;
+}
+
+header p {
+    padding: 0;
+    color: black;
+}
+
+h2.senator-name {
+    color: black;
+    text-align: left;
+    font-size: 2rem;
+    min-height: 6rem;
+}
+
+p.age {
+    font-weight: normal;
+    padding: 0;
+    color: black;
+    font-size: 1.1rem;
+}
+
+h3.percentage {
+    font-size: 1.3rem;
+    font-weight: normal;
+}
