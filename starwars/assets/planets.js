@@ -282,7 +282,7 @@ export const planets = [
         "rotation_period": "24",
         "orbital_period": "590",
         "diameter": "0",
-        "climate": "artificial temperate ",
+        "climate": "artificial temperate",
         "gravity": "0.56 standard",
         "terrain": "airless asteroid",
         "surface_water": "0",

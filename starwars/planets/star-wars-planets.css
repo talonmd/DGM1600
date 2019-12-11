@@ -14,6 +14,10 @@ header {
     align-content: center;
 }
 
+div.filter-div {
+    background-color: white;
+}
+
 button {
     color: rgb(202, 202, 74);
     background-color: rgba(202, 202, 74, 0);

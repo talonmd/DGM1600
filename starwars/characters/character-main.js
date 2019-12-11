@@ -79,6 +79,8 @@ people.forEach((person) => {
     personDiv.appendChild(picture)
 
     peopleGridDiv.appendChild(personDiv)
+
+    /* ----- PUTTING TOGETHER THE MOUSE OVER INFORMATION ----- */
 });
 
 mainSection.appendChild(peopleGridDiv)

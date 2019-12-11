@@ -110,6 +110,7 @@ p {
 
 .picDivs {
     width: 275px;
+    border-radius: 10px;
 }
 
 .charDivs {
@@ -120,4 +121,6 @@ p {
     border-radius: 10px;
     align-items: center;
     align-content: center;
+    background-color: black;
+    padding-bottom: 1rem;
 }
