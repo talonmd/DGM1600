@@ -150,7 +150,7 @@ function populateDOM(senator_array) {
         figureImage.alt = 'Placeholder image'
         figureImage.addEventListener('error', (event) => {
             let badImage = event.target
-            badImage.src = '/senators/images/bane.jpg'
+            badImage.src = '/senator/senators/images/bane.jpg'
         })
 
         figure.appendChild(figureImage)
@@ -175,13 +175,13 @@ function cardContent(senator) {
     let img = document.createElement('img')
 
     if (senator.party === "R") {
-        img.src = '/senators/images/elephant.jpeg'
+        img.src = '/senator/senators/images/elephant.jpeg'
     }
     if (senator.party === "D") {
-        img.src = '/senators/images/donkey.jpeg'
+        img.src = '/senator/senators/images/donkey.jpeg'
     }
     if (senator.party === "ID") {
-        img.src = '/senators/images/independent.gif'
+        img.src = '/senator/senators/images/independent.gif'
     }
 
     img.alt = 'Placeholder Image'
