@@ -10,14 +10,27 @@ planets.forEach((planet) => {
 
     // ----- PULLING INFORMATION ON THE PLANETS 
     let planetPopulation = document.createElement('p')
-    planetPopulation.textContent = `Population: ${planet.population}`
+    planetPopulation.textContent = `POPULATION: ${planet.population}`
+    let planetRotation = document.createElement('p')
+    planetRotation.textContent = `ROTATION PERIOD: ${planet.rotation_period}`
+    let planetOrbit = document.createElement('p')
+    planetOrbit.textContent = `ORBITAL PERIOD: ${planet.orbital_period}`
+    let planetClimate = document.createElement('p')
+    planetClimate.textContent = `CLIMATE: ${planet.climate}`
+    let planetGravity = document.createElement('p')
+    planetGravity.textContent = `GRAVITY: ${planet.gravity}`
+    let planetTerrain = document.createElement('p')
+    planetTerrain.textContent = `TERRAIN TYPES: ${planet.terrain}`
+    let planetTitle2 = document.createElement('h3')
+    planetTitle2.textContent = planet.name
+    // ----- //
 
     planetPic.setAttribute('class', 'planetPic')
     planetDiv.setAttribute('class', 'planetDiv')
     planetInfoDiv.setAttribute('class', 'planet-info-div')
 
-    let charNum = getCharNumber(planet.url) 
-    
+    let charNum = getCharNumber(planet.url)
+
     planetTitle.textContent = planet.name
     planetPic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`
     planetPic.addEventListener('error', (event) => {
@@ -28,21 +41,27 @@ planets.forEach((planet) => {
     planetDiv.appendChild(planetTitle)
     planetDiv.appendChild(planetPic)
     planetDiv.appendChild(planetInfoDiv)
-    
-    // ----- APPENDING PLANET INFORMATION
-    planetInfoDiv.appendChild(planetPopulation)
 
-    
-    mainArea.appendChild(planetDiv) 
-    planetDiv.setAttribute('style', 'display: none;') 
+    // ----- APPENDING PLANET INFORMATION
+    planetInfoDiv.appendChild(planetTitle2)
+    planetInfoDiv.appendChild(planetPopulation)
+    planetInfoDiv.appendChild(planetRotation)
+    planetInfoDiv.appendChild(planetOrbit)
+    planetInfoDiv.appendChild(planetClimate)
+    planetInfoDiv.appendChild(planetGravity)
+    planetInfoDiv.appendChild(planetTerrain)
+    // ----- //
+
+    mainArea.appendChild(planetDiv)
+    planetDiv.setAttribute('style', 'display: none;')
 })
 
 function getCharNumber(charURL) {
     let end = charURL.lastIndexOf('/')
-    let charID = charURL.substring(end -2, end)
+    let charID = charURL.substring(end - 2, end)
 
-    if(charID.indexOf('/') !== -1 ) {
-        return charID.slice(1,2)
+    if (charID.indexOf('/') !== -1) {
+        return charID.slice(1, 2)
     } else {
         return charID
     }
@@ -107,8 +126,8 @@ temperateButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -117,8 +136,8 @@ tropicalButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -127,8 +146,8 @@ frozenButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -137,8 +156,8 @@ aridButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -147,8 +166,8 @@ windyButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -157,8 +176,8 @@ hotButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -167,8 +186,8 @@ artTempButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -177,8 +196,8 @@ frigidButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -187,8 +206,8 @@ humidButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -197,8 +216,8 @@ pollutedButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -207,8 +226,8 @@ unknownButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -217,8 +236,8 @@ superheatedButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -227,8 +246,8 @@ subarticButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -237,8 +256,8 @@ rockyButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
@@ -247,8 +266,8 @@ articButton.addEventListener('click', () => {
         let matchedDiv = allDivs.find((matchingDivs) => {
             return matchingDivs.firstChild.textContent === planet.name
         })
-    matchedDiv.setAttribute('style', 'display: block;')
-    hiddenMessage.setAttribute('style', 'display: block;')
+        matchedDiv.setAttribute('style', 'display: block;')
+        hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 

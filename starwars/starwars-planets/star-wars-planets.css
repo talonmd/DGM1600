@@ -17,14 +17,14 @@ header {
 }
 
 .back-to {
-    color: white;
+    color: rgb(212, 211, 211);
     position: fixed;
     top: 1rem;
     font-family: 'distant-galaxy';
 }
 
 .back-to:hover {
-color: #b4b4b4;
+    color: #b4b4b4;
 }
 
 div.filter-div {
@@ -42,9 +42,9 @@ div.filter-div {
 }
 
 button {
-    color: rgb(202, 202, 74);
+    color: rgb(196, 196, 102);
     background-color: rgba(202, 202, 74, 0);
-    border: 4px solid rgb(202, 202, 74);
+    border: 4px solid rgb(196, 196, 102);
     border-radius: 20%;
     margin: 1rem;
     font-size: 1.2rem;
@@ -64,12 +64,7 @@ button:focus {
 }
 
 button:hover {
-    background-color: rgb(202, 202, 74);
-    color: black;
-}
-
-button.active {
-    background-color: rgb(202, 202, 74);
+    background-color: rgb(196, 196, 102);
     color: black;
 }
 
@@ -80,11 +75,12 @@ div.filter-div button {
 }
 
 body {
-    background-image: url(../resources/stars.jpg); /* Photo by Francesco Ungaro from Pexels */
+    background-image: url(../resources/stars.jpg);
+    /* Photo by Francesco Ungaro from Pexels */
     background-attachment: fixed;
     font-size: 18px;
     font-family: 'star-wars-hollow';
-    color: rgb(202, 202, 74);
+    color: rgb(196, 196, 102);
     letter-spacing: 3px;
 }
 
@@ -99,7 +95,9 @@ main {
 
 .planetPic {
     width: 275px;
-    border: 2px solid rgb(202, 202, 74);
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+    border-radius: 180px;
 }
 
 .planetDiv {
@@ -109,28 +107,32 @@ main {
     align-content: center;
     padding: .5rem .2rem;
     width: 100%;
-    border: 2px yellow solid;
 }
 
 .planet-info-div {
     float: right;
     color: rgb(202, 202, 74);
-    background-color: orange;
+    width: 57.5%;
 }
 
 h3 {
-    color: rgb(202, 202, 74);
+    display: none;
+    color: rgb(196, 196, 102);
     font-family: "star-wars-hollow";
     font-size: 2rem;
     margin: 0;
     width: 100%;
-    text-align: center;
+    padding: .5rem 0;
+}
+
+.planet-info-div h3 {
+    display: block;
 }
 
 p {
-    color: rgb(202, 202, 74);
-    font-family: "distant-galaxy";
-    font-size: 1rem;
+    color: rgb(192, 192, 127);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
     margin: 0;
     padding-bottom: .5rem;
 }
