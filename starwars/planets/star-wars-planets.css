@@ -8,14 +8,37 @@
     src: url(/starwars/resources/SFDistantGalaxy.ttf);
 }
 
+/* font-family: 'Roboto', sans-serif; */
+
 header {
     display: flex;
     align-items: center;
     align-content: center;
 }
 
+.back-to {
+    color: white;
+    position: fixed;
+    top: 1rem;
+    font-family: 'distant-galaxy';
+}
+
+.back-to:hover {
+color: #b4b4b4;
+}
+
 div.filter-div {
-    background-color: white;
+    width: 35%;
+    float: left;
+    margin-top: 4rem;
+    position: fixed;
+    height: 100vh;
+    bottom: -2rem;
+    left: 1rem;
+}
+
+.hidden {
+    display: none;
 }
 
 button {
@@ -50,17 +73,28 @@ button.active {
     color: black;
 }
 
+div.filter-div button {
+    width: 25%;
+    font-size: .9rem;
+    height: 50px;
+}
+
 body {
     background-image: url(../resources/stars.jpg); /* Photo by Francesco Ungaro from Pexels */
     background-attachment: fixed;
     font-size: 18px;
+    font-family: 'star-wars-hollow';
+    color: rgb(202, 202, 74);
+    letter-spacing: 3px;
 }
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(50%, 100%));
     grid-gap: 1rem;
     margin: 4rem 2rem;
+    float: right;
+    width: 60%;
 }
 
 .planetPic {
@@ -74,6 +108,14 @@ main {
     align-items: center;
     align-content: center;
     padding: .5rem .2rem;
+    width: 100%;
+    border: 2px yellow solid;
+}
+
+.planet-info-div {
+    float: right;
+    color: rgb(202, 202, 74);
+    background-color: orange;
 }
 
 h3 {

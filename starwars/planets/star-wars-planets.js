@@ -1,58 +1,38 @@
 import { planets } from '/starwars/assets/planets.js'
 
 let mainArea = document.querySelector('main')
-let mainHeader = document.querySelector('header')
-
-let crawlButton = document.createElement('button')
-let planetButton = document.createElement('button')
-let characterButton = document.createElement('button')
-
-crawlButton.textContent = 'View Each Films Opening Crawl'
-planetButton.textContent = 'Check out the planets of the Star Wars Universe'
-characterButton.textContent = 'See the characters of the Star Wars Universe'
-
-mainHeader.appendChild(crawlButton)
-mainHeader.appendChild(planetButton)
-mainHeader.appendChild(characterButton)
-
-planetButton.setAttribute('class', 'active')
-
-crawlButton.addEventListener('click', () => {
-    window.location = "../crawl/crawl.html"
-})
-
-planetButton.addEventListener('click', () => {
-    window.location = "../planets/planets.html"
-})
-
-characterButton.addEventListener('click', () => {
-    window.location = "../characters/characters.html"
-})
 
 planets.forEach((planet) => {
     let planetDiv = document.createElement('div')
     let planetTitle = document.createElement('h3')
-    let planetInfo = document.createElement('p')
     let planetPic = document.createElement('img')
+    let planetInfoDiv = document.createElement('div')
+
+    // ----- PULLING INFORMATION ON THE PLANETS 
+    let planetPopulation = document.createElement('p')
+    planetPopulation.textContent = `Population: ${planet.population}`
 
     planetPic.setAttribute('class', 'planetPic')
     planetDiv.setAttribute('class', 'planetDiv')
+    planetInfoDiv.setAttribute('class', 'planet-info-div')
 
     let charNum = getCharNumber(planet.url) 
     
     planetTitle.textContent = planet.name
-    planetInfo.textContent = `Population: ${planet.population}`
     planetPic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`
-
     planetPic.addEventListener('error', (event) => {
         let badImage = event.target
         badImage.src = '../resources/planet.jpg'
     })
 
     planetDiv.appendChild(planetTitle)
-    planetDiv.appendChild(planetInfo)
     planetDiv.appendChild(planetPic)
+    planetDiv.appendChild(planetInfoDiv)
+    
+    // ----- APPENDING PLANET INFORMATION
+    planetInfoDiv.appendChild(planetPopulation)
 
+    
     mainArea.appendChild(planetDiv) 
     planetDiv.setAttribute('style', 'display: none;') 
 })
@@ -76,9 +56,9 @@ const tropical = planets.filter(planet => planet.climate === 'tropical' && 'arid
 
 const frozen = planets.filter(planet => planet.climate === 'frozen')
 
-const arid = planets.filter(planet => planet.climate === 'arid' && 'arid, temperate, tropical' && 'temperate, arid, subartic' && 'arid, temperate, tropical' && 'temperate, arid, windy' && 'temperate, arid' && 'arid, rocky, windy')
+const arid = planets.filter(planet => planet.climate === 'arid, temperate, tropical' && 'temperate, arid, subartic' && 'arid, temperate, tropical' && 'temperate, arid, windy' && 'temperate, arid' && 'arid, rocky, windy')
 
-const windy = planets.filter(planet => planet.climate === 'windy' && 'temperate, arid, windy' && 'arid, rocky, windy')
+const windy = planets.filter(planet => planet.climate === 'temperate, arid, windy' && 'arid, rocky, windy')
 
 const hot = planets.filter(planet => planet.climate === 'hot' && 'hot, humid')
 
@@ -86,7 +66,7 @@ const artificialTemperate = planets.filter(planet => planet.climate === 'artific
 
 const frigid = planets.filter(planet => planet.climate === 'frigid')
 
-const humid = planets.filter(planet => planet.climate === 'humid' && 'hot, humid')
+const humid = planets.filter(planet => planet.climate === 'hot, humid')
 
 const polluted = planets.filter(planet => planet.climate === 'polluted')
 
@@ -94,11 +74,11 @@ const unknown = planets.filter(planet => planet.climate === 'unknown')
 
 const superheated = planets.filter(planet => planet.climate === 'superheated')
 
-const subarctic = planets.filter(planet => planet.climate === 'subarctic' && 'temperate, arid, subartic')
+const subarctic = planets.filter(planet => planet.climate === 'temperate, arid, subartic')
 
-const rocky = planets.filter(planet => planet.climate === 'rocky' && 'arid, rocky, windy')
+const rocky = planets.filter(planet => planet.climate === 'arid, rocky, windy')
 
-const arctic = planets.filter(planet => planet.climate === 'artic' && 'temperate, artic')
+const arctic = planets.filter(planet => planet.climate === 'temperate, artic')
 
 console.log(temperate)
 
@@ -109,17 +89,18 @@ const tropicalButton = document.querySelector('.tropical')
 const frozenButton = document.querySelector('.frozen')
 const aridButton = document.querySelector('.arid')
 const windyButton = document.querySelector('.windy')
-const temperateButton = document.querySelector('.temperate')
-const temperateButton = document.querySelector('.temperate')
-const temperateButton = document.querySelector('.temperate')
-const temperateButton = document.querySelector('.temperate')
-const temperateButton = document.querySelector('.temperate')
-const temperateButton = document.querySelector('.temperate')
-const temperateButton = document.querySelector('.temperate')
-const temperateButton = document.querySelector('.temperate')
-const temperateButton = document.querySelector('.temperate')
-const temperateButton = document.querySelector('.temperate')
+const hotButton = document.querySelector('.hot')
+const artTempButton = document.querySelector('.artificialtemperate')
+const frigidButton = document.querySelector('.frigid')
+const humidButton = document.querySelector('.humid')
+const pollutedButton = document.querySelector('.polluted')
+const unknownButton = document.querySelector('.unknown')
+const superheatedButton = document.querySelector('.superheated')
+const subarticButton = document.querySelector('.subartic')
+const rockyButton = document.querySelector('.rocky')
+const articButton = document.querySelector('.artic')
 
+const hiddenMessage = document.querySelector('.hidden')
 
 temperateButton.addEventListener('click', () => {
     temperate.forEach(planet => {
@@ -127,79 +108,148 @@ temperateButton.addEventListener('click', () => {
             return matchingDivs.firstChild.textContent === planet.name
         })
     matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
     })
 })
 
-/*
-    otherCharacters.forEach(character => {
-
+tropicalButton.addEventListener('click', () => {
+    tropical.forEach(planet => {
         let matchedDiv = allDivs.find((matchingDivs) => {
-            return matchingDivs.firstChild.textContent === character.name
+            return matchingDivs.firstChild.textContent === planet.name
         })
-        matchedDiv.setAttribute('style', 'display: none;')
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
     })
-
-    maleCharacters.forEach(character => {
-        let matchedDiv = allDivs.find((matchingDivs) => {
-            return matchingDivs.firstChild.textContent === character.name
-        })
-        matchedDiv.setAttribute('style', 'display: revert;')
-    })
-
 })
 
-femaleButton.addEventListener('click', () => {
-    maleCharacters.forEach(character => {
-
+frozenButton.addEventListener('click', () => {
+    frozen.forEach(planet => {
         let matchedDiv = allDivs.find((matchingDivs) => {
-            return matchingDivs.firstChild.textContent === character.name
+            return matchingDivs.firstChild.textContent === planet.name
         })
-
-        matchedDiv.setAttribute('style', 'display: none;')
-
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
     })
-
-    otherCharacters.forEach(character => {
-
-        let matchedDiv = allDivs.find((matchingDivs) => {
-            return matchingDivs.firstChild.textContent === character.name
-        })
-        matchedDiv.setAttribute('style', 'display: none;')
-    })
-
-    femaleCharacters.forEach(character => {
-        let matchedDiv = allDivs.find((matchingDivs) => {
-            return matchingDivs.firstChild.textContent === character.name
-        })
-        matchedDiv.setAttribute('style', 'display: revert;')
-    })
-
 })
 
-otherButton.addEventListener('click', () => {
-    maleCharacters.forEach(character => {
-
+aridButton.addEventListener('click', () => {
+    arid.forEach(planet => {
         let matchedDiv = allDivs.find((matchingDivs) => {
-            return matchingDivs.firstChild.textContent === character.name
+            return matchingDivs.firstChild.textContent === planet.name
         })
-
-        matchedDiv.setAttribute('style', 'display: none;')
-
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
     })
+})
 
-    femaleCharacters.forEach(character => {
-
+windyButton.addEventListener('click', () => {
+    windy.forEach(planet => {
         let matchedDiv = allDivs.find((matchingDivs) => {
-            return matchingDivs.firstChild.textContent === character.name
+            return matchingDivs.firstChild.textContent === planet.name
         })
-        matchedDiv.setAttribute('style', 'display: none;')
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
     })
+})
 
-    otherCharacters.forEach(character => {
+hotButton.addEventListener('click', () => {
+    hot.forEach(planet => {
         let matchedDiv = allDivs.find((matchingDivs) => {
-            return matchingDivs.firstChild.textContent === character.name
+            return matchingDivs.firstChild.textContent === planet.name
         })
-        matchedDiv.setAttribute('style', 'display: revert;')
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
     })
+})
 
-}) */
+artTempButton.addEventListener('click', () => {
+    artificialTemperate.forEach(planet => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === planet.name
+        })
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
+    })
+})
+
+frigidButton.addEventListener('click', () => {
+    frigid.forEach(planet => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === planet.name
+        })
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
+    })
+})
+
+humidButton.addEventListener('click', () => {
+    humid.forEach(planet => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === planet.name
+        })
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
+    })
+})
+
+pollutedButton.addEventListener('click', () => {
+    polluted.forEach(planet => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === planet.name
+        })
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
+    })
+})
+
+unknownButton.addEventListener('click', () => {
+    unknown.forEach(planet => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === planet.name
+        })
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
+    })
+})
+
+superheatedButton.addEventListener('click', () => {
+    superheated.forEach(planet => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === planet.name
+        })
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
+    })
+})
+
+subarticButton.addEventListener('click', () => {
+    subarctic.forEach(planet => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === planet.name
+        })
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
+    })
+})
+
+rockyButton.addEventListener('click', () => {
+    rocky.forEach(planet => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === planet.name
+        })
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
+    })
+})
+
+articButton.addEventListener('click', () => {
+    arctic.forEach(planet => {
+        let matchedDiv = allDivs.find((matchingDivs) => {
+            return matchingDivs.firstChild.textContent === planet.name
+        })
+    matchedDiv.setAttribute('style', 'display: block;')
+    hiddenMessage.setAttribute('style', 'display: block;')
+    })
+})
+
+
