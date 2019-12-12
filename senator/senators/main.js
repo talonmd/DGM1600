@@ -9,7 +9,7 @@ async function getAPIData(url) {
     }
 }
 
-// now, use the returned async data
+// using the returned async data
 let allSenators = []
 let simpleSenators = []
 let republicans = []
@@ -77,8 +77,7 @@ function attatchIndependentInfoToHeader(information) {
 }
 
 
-// this maps the json file array, and creates a new array, with only the items that I want to be in it
-// map example
+// mapping the json file array, creating a new array, with only the items that I want to be in it
 function makeSimpleMap(allOfThem) {
     let results = allOfThem.map(senator => {
         return {
@@ -95,18 +94,12 @@ function makeSimpleMap(allOfThem) {
     return results
 }
 
-// filter example
+// filtering the senators by party affiliation
 function filterSenators(simpleList, partyAffiliation) {
     return simpleList.filter(senator => senator.party === partyAffiliation)
 }
 
-// reduce example
-const testArray = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
-
-const testReduce = testArray.reduce((acc, num) => {
-    return acc + num
-}, 0)
-
+// using reduce to accumulate the total votes of the senators
 function totalVotes(senatorList) {
     const results = senatorList.reduce((acc, senator) => {
         return acc + senator.total_votes
@@ -114,21 +107,19 @@ function totalVotes(senatorList) {
     return results
 }
 
+// using reduce to determine the oldest senator
 function oldestSenator(senatorList) {
     return senatorList.reduce((oldest, senator) => {
         return (oldest.age || 0) > senator.age ? oldest : senator
     }, {})
 }
 
-
+// sorting the senators by age
 function sortSenatorsByAge(senatorList) {
     return senatorList.sort(function (a, b) {
         return a.age - b.age
     })
 }
-console.log(testReduce)
-
-
 
 // filling the cards container and such
 const container = document.querySelector('.container')
@@ -145,6 +136,7 @@ function populateDOM(senator_array) {
         let figure = document.createElement('figure')
         figure.setAttribute('class', 'image')
 
+        // ----- PULLING THE SENATORS IMAGES
         let figureImage = document.createElement('img')
         figureImage.src = `https://www.congress.gov/img/member/${senator.id.toLowerCase()}_200.jpg`
         figureImage.alt = 'Placeholder image'
@@ -152,6 +144,7 @@ function populateDOM(senator_array) {
             let badImage = event.target
             badImage.src = '/senator/senators/images/bane.jpg'
         })
+        // ----- //
 
         figure.appendChild(figureImage)
         cardImage.appendChild(figure)
@@ -167,8 +160,6 @@ function cardContent(senator) {
     cardContent.setAttribute('class', 'card-content')
     let media = document.createElement('div')
     media.setAttribute('class', 'media')
-    //let mediaLeft = document.createElement('div')
-    //mediaLeft.setAttribute('class', 'mediaLeft')
 
     let figure = document.createElement('figure')
     figure.setAttribute('class', 'image is-96x96')
@@ -184,7 +175,6 @@ function cardContent(senator) {
         img.src = '/senator/senators/images/independent.gif'
     }
 
-    img.alt = 'Placeholder Image'
     let mediaContent = document.createElement('div')
     mediaContent.setAttribute('class', 'media-content')
     let titleP = document.createElement('h2')
@@ -194,7 +184,7 @@ function cardContent(senator) {
     subtitleP.setAttribute('class', 'percentage')
     subtitleP.textContent = `Votes with Party ${senator.votes_with_party_pct}% of the time.`
 
-    // ----- TOTAL AND MISSED VOTES
+    // ----- TOTAL AND MISSED VOTES DISPLAYS
     let votesP = document.createElement('p')
     let missedVotesP = document.createElement('p')
     votesP.textContent = `Number of Votes: ${senator.total_votes}`
@@ -208,8 +198,6 @@ function cardContent(senator) {
     ageP.setAttribute('class', 'age')
     ageP.textContent = `Age: ${senator.age}`
 
-
-
     mediaContent.appendChild(titleP)
     mediaContent.appendChild(ageP)
     mediaContent.appendChild(votesP)
@@ -218,27 +206,20 @@ function cardContent(senator) {
     contentDiv.appendChild(img)
     contentDiv.appendChild(subtitleP)
 
-    //mediaLeft.appendChild(figure)
-    //media.appendChild(mediaLeft)
     media.appendChild(mediaContent)
 
     contentDiv.appendChild(contentBreak)
-
-
-
 
     cardContent.appendChild(media)
     cardContent.appendChild(contentDiv)
 
     return cardContent
-
 }
 
-// function to calcuate age based of a birth date
+// function to calcuate age based on a birth date
 function calculate_age(dob) {
     let diff_ms = Date.now() - dob.getTime();
     let age_dt = new Date(diff_ms);
 
     return Math.abs(age_dt.getUTCFullYear() - 1970);
-
 }

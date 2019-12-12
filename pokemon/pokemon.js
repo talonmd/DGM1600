@@ -1,7 +1,7 @@
 let headerArea = document.querySelector('header')
 let mainArea = document.querySelector('main')
 
-// construct a new card with your own values
+// construct a new card with your own values using constructors
 class Pokemon {
     constructor(id, name) {
         this.id = id
@@ -21,6 +21,7 @@ const Barney = new Pokemon(1000, 'Barney')
 const PotatoHead = new Pokemon(1000, 'Potatohead')
 const Spiderman = new Pokemon(1000, 'Spiderman')
 
+// creating a button & generating a random number to determine the image
 const createButton = document.querySelector('#createPokemon')
 createButton.addEventListener('click', function () {
     let randomNumber = Math.round(Math.random() * 9)
@@ -46,7 +47,7 @@ createButton.addEventListener('click', function () {
     }
 })
 
-// create a new card from the existing api data
+// creating a new card from the existing api data
 const alert = document.querySelector('.alert-box')
 const newButton = document.querySelector('#newPokemon')
 newButton.addEventListener('click', function () {
@@ -62,9 +63,6 @@ newButton.addEventListener('click', function () {
         alert.style.display = 'block'
     }
 })
-
-
-
 
 // async function
 async function getAPIData(url) {

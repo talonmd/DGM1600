@@ -67,7 +67,7 @@ function getCharNumber(charURL) {
     }
 }
 
-// ---------- FILTER CODE DOWN BELOW
+// ---------- FILTERING BY CLIMATE CODE DOWN BELOW
 
 const temperate = planets.filter(planet => planet.climate === 'temperate' && 'arid, temperate, tropical' && 'tropical, temperate' && 'temperate, artic' && 'temperate, arid, subartic' && 'arid, temperate, tropical' && 'temperate, moist' && 'temperate, arid, windy' && 'temperate, arid' && 'temperate, tropical')
 
