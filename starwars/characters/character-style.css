@@ -14,6 +14,11 @@ header {
     align-content: center;
 }
 
+.back-to {
+    color: white;
+    font-family: 'distant-galaxy';
+}
+
 button {
     color: rgb(202, 202, 74);
     background-color: rgba(202, 202, 74, 0);
